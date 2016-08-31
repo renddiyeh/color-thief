@@ -1,7 +1,6 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
-    host_config: grunt.file.readJSON('.host_config'),
     compass: {
       dist: {
         options: {
@@ -14,24 +13,8 @@ module.exports = function(grunt) {
     connect: {
       server: {
         options: {
-          port: 8000
+          port: 3000
         }
-      }
-    },
-    'ftp-deploy': {
-      build: {
-        auth: {
-          host: '<%- host_config.host %>',
-          port: '<%- host_config.port %>'
-        },
-        src: '.',
-        dest: '<%- host_config.directory %>',
-        exclusions: [
-          '**/.*',
-          '.*',
-          'bower_components',
-          'node_modules'
-        ]
       }
     },
     jshint: {
